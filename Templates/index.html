@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Iris with IA</title>
+    <link rel="shortcut icon" href="static/images/fav_icon.png" type="image/x-icon">
+    
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css'>
+
+    <link rel="stylesheet" type="text/css" href="static/css/bulma.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="static/css/cards.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <!-- START NAV -->
+    <nav class="navbar is-fixed-top">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112" height="28">
+        </a>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExampleTransparentExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="http://flask101.glitch.me">
+            Flask 101
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="https://bulma.io/documentation/overview/start/">
+              Menú Cool
+            </a>
+            <div class="navbar-dropdown is-boxed">
+              <a class="navbar-item" href="https://bulma.io/documentation/overview/start/">
+                Esto
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/modifiers/syntax/">
+                No 
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/columns/basics/">
+                Hace
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/layout/container/">
+                Nada
+              </a>
+              <a class="navbar-item" href="https://bulma.io/documentation/form/general/">
+                Excepto
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" href="https://bulma.io/documentation/elements/box/">
+                Lucir
+              </a>
+              <a class="navbar-item is-active" href="https://bulma.io/documentation/components/breadcrumb/">
+                Bonito
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="field is-grouped">
+              <p class="control">
+                <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://futurelab.mx/">
+                  <span class="icon">
+                    <i class="fa fa-rocket"></i>
+                  </span>
+                  <span>
+                    Botón Con Emoji
+                  </span>
+                </a>
+              </p>
+              <p class="control">
+                <a class="button is-primary" href="">
+                  <span class="icon">
+                    <i class="far"></i>
+                  </span>
+                  <span>Otro Botón Con Emoji</span>
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- END NAV -->
+
+    <!-- Tittle -->
+
+            <div class="container">
+                <div id="flow">
+                    <span class="flow-1"></span>
+                    <span class="flow-2"></span>
+                    <span class="flow-3"></span>
+                </div>
+
+                <section class="hero is-medium is-bold">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title" style="color:white; margin: 0 0 20px 30rem;">
+                Iris Flower!
+              </h1>
+              <h2 class="subtitle" style="color:white; margin: 0 0 20px 29rem;">
+                With Artificial Neurons.
+              </h2>
+            </div>
+          </div>
+        </section>
+
+		<!-- Cards -->
+            <div class="row columns">
+                {% for item in cards%}
+                <div class="column is-one-third">
+                    <div class="card" style="margin: auto auto 2rem auto; border-radius: 5px;">
+                        <div class="card-image">
+                            <figure class="image is-1by1">
+                                <img src=" {{item['photo']}} " alt="Image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-left">
+                                    <figure class="image is-96x96">
+                                        <img src="{{item['mini_photo']}}" alt="Image">
+                                    </figure>
+                                </div>
+                                <div class="media-content">
+                                    <p class="title is-4 no-padding">{{ item['name'] }}</p>
+                                    <p><span class="title is-6"><a href="">{{ item['contacto'] }}</a></span></p>
+                                    <p class="subtitle is-6">"Python es lo máximo"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        	</div>
+
+        <!-- End Cards -->
+    </div>
+
+    <!-- Form -->
+
+    {% if flag %}
+    <article class="message is-danger container" style="width: 50%;">
+      <div class="message-header">
+        <p>Holy Guacamole!</p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body">
+        Sorry bro, pero tienes que completar todos los campos, ahora:  <a href="/">Presiona aquí para volverlo a intentar</a>
+      </div>
+    </article>
+    {% endif %}
+
+    <form class="box container" method="POST" style="background: white; width: 50%;">
+
+        <div class="container" style="margin: 1.2em 1.2em 1.2em 1.2em;">
+            <p class="title is-4 no-padding"> ¡Ahora, tú mismo hazlo!</p>
+            <p>Aquí puedes introducir las medidas de tu Iris para descubrir cuál es el tipo de la bonita flor que estás midiendo, los tkm, hasta la próxima <i class="far fa-smile-wink"></i> </p>
+        </div>
+
+          <div class="field control">
+            <p class="control has-icons-left has-icons-right">
+              <input class="input" type="text" name="LS" placeholder="Largo de sépalo">
+              <span class="icon is-small is-left">
+                <i class="far fa-laugh"></i>
+              </span>
+            </p>
+          </div>
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="text" name="AS" placeholder="Ancho de sépalo">
+              <span class="icon is-small is-left">
+                <i class="far fa-laugh"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="text" name="LP" placeholder="Largo de pétalo">
+              <span class="icon is-small is-left">
+                <i class="far fa-laugh"></i>
+              </span>
+            </p>
+          </div>
+
+          <div class="field">
+            <p class="control has-icons-left">
+              <input class="input" type="text" name="AP" placeholder="Ancho de pétalo">
+              <span class="icon is-small is-left">
+                <i class="far fa-laugh"></i>
+              </span>
+            </p>
+          </div>
+
+          <center>
+          <div class="field">
+            <p class="control">
+              <button class="button is-success">
+                A DARLE ÁTOMOS!
+              </button>
+            </p>
+          </div>
+          </center>
+
+      </form>
+
+
+    <!-- End Form -->
+
+    <!-- Footer -->
+    <footer class="footer">
+            <div class="container">
+                <div class="content has-text-centered">
+                    <div class="soc">
+                        <a href="" target="_blank"><i class="fa fa-github-alt fa-2x" aria-hidden="true"></i></a>
+                        <a href="" target="_blank"><i class="fa fa-globe fa-2x"></i></a>
+                        <a href="" target="_blank"><i class="fa fa-facebook fa-2x" aria-hidden="true"></i></a>
+                        <a href="" target="_blank"><i class="fa fa-rocket fa-2x" aria-hidden="true"></i></a>
+                    </div>
+                    <p>
+                        <strong>IRIS</strong> by <a href="http://flask101.glitch.me">El Bubu y El Zaido</a>.<br>
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+            <script src="static/js/bulma.js"></script>
+
+
+</body>
+
+</html>

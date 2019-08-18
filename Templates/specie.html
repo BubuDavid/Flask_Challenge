@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+    <link rel="shortcut icon" href="static/images/fav_icon.png" type="image/x-icon">
+    
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css'>
+
+    <link rel="stylesheet" type="text/css" href="static/css/bulma.css">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="static/css/cards.css">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+	<title>
+		Ésta es tu Iris
+	</title>
+</head>
+<body>
+
+<center>
+	<div class="column is-one-third">
+	    <div class="card" style="margin: auto auto 2rem auto; border-radius: 5px;">
+	        <div class="card-image">
+	            <figure class="image is-1by1">
+	                <img src=" {{ flower[flower_specie]['photo'] }} " alt="Image">
+	            </figure>
+	        </div>
+	        <div class="card-content">
+	            <div class="media">
+	                <div class="media-content">
+	                    <p class="title is-4 no-padding">{{ flower[flower_specie]['name'] }}</p> <br><br>
+	                    <p class="subtitle is-6">"Python es lo máximo"</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<a class="button is-primary" href="/" style="width: 30%;"> <i class="fas fa-home"></i> Back</a>
+
+</center>
+
+</body>
+</html>
